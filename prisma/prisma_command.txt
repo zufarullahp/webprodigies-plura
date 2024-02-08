@@ -1,0 +1,15 @@
+
+#start mysql WSL
+sudo /etc/init.d/mysql start
+
+# populate generate schema from prisma file  
+bunx prisma generate
+
+# populate db 
+bunx prisma db push
+
+# open prisma studio
+bunx prisma studio
+
+# mysql command
+sudo service mysql status 
