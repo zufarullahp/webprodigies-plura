@@ -13,3 +13,6 @@ bunx prisma studio
 
 # mysql command
 sudo service mysql status 
+
+
+Checkpoint : 04:17:00+++
