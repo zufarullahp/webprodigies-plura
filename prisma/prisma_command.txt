@@ -15,4 +15,10 @@ bunx prisma studio
 sudo service mysql status 
 
 
-Checkpoint : 04:17:00+++
+Checkpoint : 06:05:00
+
+Done
+settings, launchpad, team, 
+
+Checkpoint
+SubAccount Page
