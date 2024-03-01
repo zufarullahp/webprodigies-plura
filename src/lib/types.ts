@@ -1,6 +1,7 @@
 import { Notification, Prisma, Role } from "@prisma/client";
-import { getAuthUserDetails, getUserPermissions } from "./queries";
+import { getAuthUserDetails, getMedia, getUserPermissions } from "./queries";
 import { db } from "./db";
+import { PrimitiveLabelProps } from "@radix-ui/react-label";
 
 export type NotificationWithUser =
   | ({
@@ -42,3 +43,7 @@ export type UsersWithAgencySubAccountPermissionsSidebarOptions =
 Prisma.PromiseReturnType<
   typeof __getUsersWithAgencySubAccountPermissionsSidebarOptions
 >
+
+export type GetMediaFiles = Prisma.PromiseReturnType<typeof getMedia>
+
+export type createMediaType = Prisma.MediaCreateWithoutSubaccountInput
