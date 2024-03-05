@@ -659,6 +659,10 @@ export const deleteLane = async (laneId: string) => {
   const resposne = await db.lane.delete({ where: { id: laneId } })
   return resposne
 }
+export const deleteTicket = async (ticketId: string) => {
+  const resposne = await db.ticket.delete({ where: { id: ticketId } })
+  return resposne
+}
 
 export const getTicketsWithTags = async (pipelineId: string) => {
   const response = await db.ticket.findMany({
@@ -746,5 +750,30 @@ export const upsertTicket = async (
     },
   })
 
+  return response
+}
+
+export const upsertTag = async (
+  subaccountId: string,
+  tag: Prisma.TagUncheckedCreateInput
+) => {
+  const response = await db.tag.upsert({
+    where: { id: tag.id || v4(), subAccountId: subaccountId },
+    update: tag,
+    create: { ...tag, subAccountId: subaccountId },
+  })
+
+  return response
+}
+export const deleteTag = async (tagId: string) => {
+  const response = await db.tag.delete({ where: { id: tagId } })
+  return response
+}
+
+export const getTagsForSubaccount = async (subaccountId: string) => {
+  const response = await db.subAccount.findUnique({
+    where: { id: subaccountId },
+    select: { Tags: true },
+  })
   return response
 }

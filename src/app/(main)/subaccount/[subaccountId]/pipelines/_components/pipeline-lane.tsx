@@ -29,7 +29,7 @@ import { Draggable, Droppable } from 'react-beautiful-dnd'
 import { Edit, MoreVertical, PlusCircleIcon, Trash } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import React, { Dispatch, SetStateAction, useMemo } from 'react'
-// import PipelineTicket from './pipeline-ticket'
+import PipelineTicket from './pipeline-ticket'
 import CustomModal from '@/components/global/custom-modal'
 import TicketForm from '@/components/forms/ticket-form'
 // import PipelineTicket from './pipeline-ticket'
@@ -128,6 +128,7 @@ const PipelineLane: React.FC<PipelaneLaneProps> = ({
     >
       {(provided, snapshot) => {
         if (snapshot.isDragging) {
+          // adjust posisyion 
           //@ts-ignore
           const offset = { x: 300, y: 0 }
           //@ts-ignore
@@ -152,7 +153,7 @@ const PipelineLane: React.FC<PipelaneLaneProps> = ({
                 <div className="bg-slate-200/30 dark:bg-background/20  h-[700px] w-[300px] px-4 relative rounded-lg overflow-visible flex-shrink-0 ">
                   <div
                     {...provided.dragHandleProps}
-                    className=" h-14 backdrop-blur-lg dark:bg-background/40 bg-slate-200/60  absolute top-0 left-0 right-0 z-10 "
+                    className="h-14 backdrop-blur-lg dark:bg-background/40 bg-slate-200/60  absolute top-0 left-0 right-0 z-10 "
                   >
                     <div className="h-full flex items-center p-4 justify-between cursor-grab border-b-[1px] ">
                       {/* {laneDetails.order} */}
@@ -189,15 +190,15 @@ const PipelineLane: React.FC<PipelaneLaneProps> = ({
                           className="mt-2"
                         >
                           {tickets.map((ticket, index) => (
-                            // <PipelineTicket
-                            //   allTickets={allTickets}
-                            //   setAllTickets={setAllTickets}
-                            //   subaccountId={subaccountId}
-                            //   ticket={ticket}
-                            //   key={ticket.id.toString()}
-                            //   index={index}
-                            // />
-                            <div key={ticket.id}></div>
+                            <PipelineTicket
+                              allTickets={allTickets}
+                              setAllTickets={setAllTickets}
+                              subaccountId={subaccountId}
+                              ticket={ticket}
+                              key={ticket.id.toString()}
+                              index={index}
+                            />
+                            // <div key={ticket.id}></div>
                           ))}
                           {provided.placeholder}
                         </div>
