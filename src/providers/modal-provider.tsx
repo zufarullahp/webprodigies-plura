@@ -12,6 +12,7 @@ export type ModalData = {
   user?: User
   agency?: Agency
   ticket?: TicketDetails[0]
+  contact?: Contact
   }
 
 type ModalContextType = {

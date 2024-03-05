@@ -90,3 +90,8 @@ export const TicketFormSchema = z.object({
     message: 'Value must be a valid price.',
   }),
 })
+
+export const ContactUserFormSchema = z.object({
+  name: z.string().min(1, 'Required'),
+  email: z.string().email(),
+})
