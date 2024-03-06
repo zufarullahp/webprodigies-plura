@@ -1,8 +1,10 @@
+// import { FunnelsForSubAccount } from '@/lib/types';
 import { Contact, Lane, Notification, Prisma, Role, Tag, Ticket, User } from "@prisma/client";
-import { _getTicketsWithAllRelations, getAuthUserDetails, getMedia, getPipelineDetails, getTicketsWithTags, getUserPermissions } from "./queries";
+import { _getTicketsWithAllRelations, getAuthUserDetails, getFunnels, getMedia, getPipelineDetails, getTicketsWithTags, getUserPermissions } from "./queries";
 import { db } from "./db";
 import { PrimitiveLabelProps } from "@radix-ui/react-label";
 import { z } from "zod";
+import Stripe from "stripe";
 
 export type NotificationWithUser =
   | ({
@@ -95,3 +97,30 @@ export const ContactUserFormSchema = z.object({
   name: z.string().min(1, 'Required'),
   email: z.string().email(),
 })
+
+
+export type FunnelsForSubAccount = Prisma.PromiseReturnType<typeof getFunnels>[0]
+
+export type UpsertFunnelPage = Prisma.FunnelPageCreateWithoutFunnelInput
+
+export type Address = {
+  city: string
+  country: string
+  line1: string
+  postal_code: string
+  state: string
+}
+
+export type ShippingInfo = {
+  address: Address
+  name: string
+}
+
+export type StripeCustomerType = {
+  email: string
+  name: string
+  shipping: ShippingInfo
+  address: Address
+}
+
+export type PricesList = Stripe.ApiList<Stripe.Price>

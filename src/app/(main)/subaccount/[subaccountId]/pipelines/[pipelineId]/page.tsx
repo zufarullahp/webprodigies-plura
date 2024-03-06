@@ -60,7 +60,7 @@ const PipelinePage = async ({params}: Props) => {
        updateTicketsOrder={updateTicketsOrder}
       ></PipelineView>
     </TabsContent>
-    <TabsContent value='view'>
+    <TabsContent value='settings'>
       <PipelineSettings
       pipelineId={params.pipelineId}
       pipelines={pipelines}

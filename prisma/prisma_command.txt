@@ -15,8 +15,24 @@ bunx prisma studio
 sudo service mysql status 
 
 
-Checkpoint : 08:34:00
+Checkpoint : 10:30:00
 
+done
+set up stripe
 
-Checkpoint
-ongoing pipeline ticket
+ongoing  
+billing page
+
+Checkpoint 
+set up stripe webhook for upsert payment 
+
+not deliver in video
+note : 
+1. restrict billing account , free plan can only for 3 subaccount and soo on
+
+cant test :
+1. multi stripe account, test if it is create connectAccountId
+
+bug :
+1. after click agency launchpad then strip registration show up then when return back the checklist button is checked but i realy dont not yet register 
+
