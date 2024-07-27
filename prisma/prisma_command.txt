@@ -15,24 +15,33 @@ bunx prisma studio
 sudo service mysql status 
 
 
-Checkpoint : 10:30:00
+Checkpoint : 13:49:00
 
-done
-set up stripe
+
 
 ongoing  
-billing page
+set up recursive element as editor page
 
 Checkpoint 
-set up stripe webhook for upsert payment 
+recursive component container as element
 
 not deliver in video
 note : 
 1. restrict billing account , free plan can only for 3 subaccount and soo on
+2. at funnel step delete and copy funnelPage need to manually refresh to see the changes 
+3. duplication at editor container element ,onDrag /home/didit/webprodigies/webprodigies-plura/src/app/(main)/subaccount/[subaccountId]/funnels/[funnelId]/editor/[funnelPageId]/_components/funnel-editor/funnel-editor-components/container.tsx
+
 
 cant test :
 1. multi stripe account, test if it is create connectAccountId
 
 bug :
 1. after click agency launchpad then strip registration show up then when return back the checklist button is checked but i realy dont not yet register 
+2. subaccountdetails cant return funnel settings page
 
+
+find what in discord ?
+1. stripe full documentation researched
+2. spin up local storage at editor  
+
+http://localhost:3000/subaccount/9866750c-f73c-407c-a1eb-e3f7eff6b549/funnels/0fdf9597-4340-4988-a2bb-60ecadb19af8/editor/965a6ba9-3122-4e68-b9bd-1f4d244af4f0

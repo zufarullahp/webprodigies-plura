@@ -6,7 +6,7 @@ import { redirect } from "next/navigation";
 import { Agency, Lane, Plan, Prisma, Role, SubAccount, Tag, Ticket, User } from "@prisma/client";
 import { v4 } from "uuid";
 import { sub } from "date-fns";
-import { CreateFunnelFormSchema, createMediaType } from "./types";
+import { CreateFunnelFormSchema, UpsertFunnelPage, createMediaType } from "./types";
 import { z } from "zod";
 import { revalidatePath } from 'next/cache'
 
@@ -849,5 +849,22 @@ export const upsertFunnelPage = async (
   })
 
   revalidatePath(`/subaccount/${subaccountId}/funnels/${funnelId}`, 'page')
+  return response
+}
+
+
+export const deleteFunnelePage = async (funnelPageId: string) => {
+  const response = await db.funnelPage.delete({ where: { id: funnelPageId } })
+
+  return response
+}
+
+export const getFunnelPageDetails = async (funnelPageId: string) => {
+  const response = await db.funnelPage.findUnique({
+    where: {
+      id: funnelPageId,
+    },
+  })
+
   return response
 }

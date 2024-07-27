@@ -1,0 +1,26 @@
+1. clerk error
+Unhandled Runtime Error
+Error: An error occurred in the Server Components render but no message was provided
+
+Call Stack
+UserAPI.eval [as request]
+(rsc)/./node_modules/@clerk/backend/dist/esm/index.js (1187:27)
+process.processTicksAndRejections
+node:internal/process/task_queues (95:5)
+async verifyAndAcceptInvitation
+(rsc)/./src/lib/queries.ts (181:18)
+async SubaccountLayout
+(rsc)/./src/app/(main)/subaccount/[subaccountId]/layout.tsx (24:22)
+
+Unhandled Runtime Error
+Error: An error occurred in the Server Components render but no message was provided
+
+Call Stack
+UserAPI.eval [as request]
+(rsc)/./node_modules/@clerk/backend/dist/esm/index.js (1187:27)
+process.processTicksAndRejections
+node:internal/process/task_queues (95:5)
+async getAuthUserDetails
+(rsc)/./src/lib/queries.ts (67:18)
+async SubaccountLayout
+(rsc)/./src/app/(main)/subaccount/[subaccountId]/layout.tsx (42:32)

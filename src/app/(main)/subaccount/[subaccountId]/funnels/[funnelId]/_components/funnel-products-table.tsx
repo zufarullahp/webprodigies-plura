@@ -8,7 +8,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
-// import Stripe from 'stripe'
+import Stripe from 'stripe'
 import Image from 'next/image'
 import {
   saveActivityLogsNotification,
@@ -21,11 +21,11 @@ import { Button } from '@/components/ui/button'
 
 interface FunnelProductsTableProps {
   defaultData: Funnel
-//   products: Stripe.Product[]
+  products: Stripe.Product[]
 }
 
 const FunnelProductsTable: React.FC<FunnelProductsTableProps> = ({
-//   products,
+  products,
   defaultData,
 }) => {
   const router = useRouter()
@@ -49,31 +49,31 @@ const FunnelProductsTable: React.FC<FunnelProductsTableProps> = ({
     router.refresh()
   }
 
-//   const handleAddProduct = async (product: Stripe.Product) => {
-//     const productIdExists = liveProducts.find(
-//       //@ts-ignore
-//       (prod) => prod.productId === product.default_price.id
-//     )
-//     productIdExists
-//       ? setLiveProducts(
-//           liveProducts.filter(
-//             (prod) =>
-//               prod.productId !==
-//               //@ts-ignore
-//               product.default_price?.id
-//           )
-//         )
-//       : //@ts-ignore
-//         setLiveProducts([
-//           ...liveProducts,
-//           {
-//             //@ts-ignore
-//             productId: product.default_price.id as string,
-//             //@ts-ignore
-//             recurring: !!product.default_price.recurring,
-//           },
-//         ])
-//   }
+  const handleAddProduct = async (product: Stripe.Product) => {
+    const productIdExists = liveProducts.find(
+      //@ts-ignore
+      (prod) => prod.productId === product.default_price.id
+    )
+    productIdExists
+      ? setLiveProducts(
+          liveProducts.filter(
+            (prod) =>
+              prod.productId !==
+              //@ts-ignore
+              product.default_price?.id
+          )
+        )
+      : //@ts-ignore
+        setLiveProducts([
+          ...liveProducts,
+          {
+            //@ts-ignore
+            productId: product.default_price.id as string,
+            //@ts-ignore
+            recurring: !!product.default_price.recurring,
+          },
+        ])
+  }
   return (
     <>
       <Table className="bg-card border-[1px] border-border rounded-md">
@@ -87,7 +87,7 @@ const FunnelProductsTable: React.FC<FunnelProductsTableProps> = ({
           </TableRow>
         </TableHeader>
         <TableBody className="font-medium truncate">
-          {/* {products.map((product) => (
+          {products.map((product) => (
             <TableRow key={product.id}>
               <TableCell>
                 <Input
@@ -125,7 +125,7 @@ const FunnelProductsTable: React.FC<FunnelProductsTableProps> = ({
                 }
               </TableCell>
             </TableRow>
-          ))} */}
+          ))}
         </TableBody>
       </Table>
       <Button
